@@ -16,8 +16,8 @@
 #'   If `FALSE`,
 #'   uses the `--local` option.
 #' @export
-term_git_config <- function(name = "Ivan Jacob Agaloos Pesigan",
-                            email = "learn.jeksterslab@gmail.com",
+term_git_config <- function(name = "User Name",
+                            email = "email@email.com",
                             editor = "vim",
                             ignore = c(
                               "*~",

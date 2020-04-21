@@ -5,8 +5,8 @@
 \title{Git config}
 \usage{
 term_git_config(
-  name = "Ivan Jacob Agaloos Pesigan",
-  email = "learn.jeksterslab@gmail.com",
+  name = "User Name",
+  email = "email@email.com",
   editor = "vim",
   ignore = c("*~", ".*.swp", ".DS_Store", ".~lock.*"),
   msg = paste0("Subject line (try to keep under 50 characters)", "\\n\\n",
