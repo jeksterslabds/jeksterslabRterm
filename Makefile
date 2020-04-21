@@ -15,6 +15,7 @@ all :
 	-rm -rf ${PKG}/vignettes/*.md
 	cp ${RUTILS}/util_os.R ${RPKG}
 	cp ${RUTILS}/util_txt2file.R ${RPKG}
+	cp ${UTILS}/tests/testthat/test_util_txt2file.R ${PKG}/tests/testthat
 	Rscript -e 'devtools::install("${PKG}")'
 	Rscript -e 'jeksterslabRpkg::pkg_build("${PKG}", git = TRUE, github = TRUE)'
 
@@ -27,6 +28,7 @@ clean :
 	-rm -rf ${PKG}/vignettes/*.md
 	cp ${RUTILS}/util_os.R ${RPKG}
 	cp ${RUTILS}/util_txt2file.R ${RPKG}
+	cp ${UTILS}/tests/testthat/test_util_txt2file.R ${PKG}/tests/testthat
 	git add --all
 	git commit -m "Automated clean."
 	git push
