@@ -14,7 +14,7 @@ syntax enable
 " Solarized colorscheme
 set background=dark
 "set background=light
-colorscheme solarized
+colorscheme default
 " Search
 set hlsearch
 " Current line in insert mode

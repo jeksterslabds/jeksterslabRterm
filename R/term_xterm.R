@@ -33,7 +33,7 @@ term_xterm <- function(overwrite = FALSE,
         con = system.file(
           "extdata",
           "Xresources",
-          "Xresources_solarized_dark",
+          "Xresources_dark",
           package = "jeksterslabRterm",
           mustWork = TRUE
         )
@@ -46,7 +46,7 @@ term_xterm <- function(overwrite = FALSE,
         con = system.file(
           "extdata",
           "Xresources",
-          "Xresources_solarized_light",
+          "Xresources_light",
           package = "jeksterslabRterm",
           mustWork = TRUE
         )
