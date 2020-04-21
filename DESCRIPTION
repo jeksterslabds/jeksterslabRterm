@@ -19,7 +19,6 @@ Language: en-US
 Depends: R (>= 3.5.0)
 Suggests:
     knitr,
-    rmarkdown,
     testthat
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
