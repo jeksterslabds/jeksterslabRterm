@@ -72,7 +72,7 @@ term_renviron <- function(dir = Sys.getenv("HOME"),
   if (file.exists(renviron)) {
     if (!overwrite) {
       return(
-        warning(
+        message(
           paste(
             renviron,
             "exists and will NOT be overwritten.\n"

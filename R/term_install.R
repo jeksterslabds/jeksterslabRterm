@@ -1,6 +1,10 @@
 #' Install Terminal Tools
 #'
 #' @author Ivan Jacob Agaloos Pesigan
+#' @examples
+#' \dontrun{
+#' term_install()
+#' }
 #' @export
 term_install <- function() {
   os <- util_os()
@@ -25,6 +29,7 @@ term_install <- function() {
       x = x
     )
     packages <- c(
+      "neofetch",
       "wget",
       "git",
       "bash-completion",
@@ -55,6 +60,7 @@ term_install <- function() {
   }
   if (os == "osx") {
     brew <- c(
+      "neofetch",
       "wget",
       "git",
       "bash-completion",

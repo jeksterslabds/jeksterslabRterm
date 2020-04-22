@@ -15,6 +15,14 @@
 #'   uses the `--global` option.
 #'   If `FALSE`,
 #'   uses the `--local` option.
+#' @examples
+#' \dontrun{
+#' term_git_config(
+#'   name = "User Name",
+#'   email = "email@email.com",
+#'   global = TRUE
+#' )
+#' }
 #' @export
 term_git_config <- function(name = "User Name",
                             email = "email@email.com",

@@ -27,11 +27,13 @@ Creates the following files:
 in the home directory.
 }
 \examples{
+\dontrun{
 term_bash(
   dir = getwd(),
   overwrite = TRUE,
   vars = c(GITHUB_PAT = "123456", TRAVIS_TOKEN = "123456")
 )
+}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

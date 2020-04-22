@@ -3,14 +3,29 @@
 #' Creates `Xterm` `.Xresources` in the home directory.
 #'
 #' @author Ivan Jacob Agaloos Pesigan
+#' @param dir Character string.
+#'   `.Xresources` directory.
+#'   Defaults to user's home directory.
 #' @param overwrite Logical.
 #'   Overwrite existing `.Xresources` dot files in the home directory.
 #' @param dark Logical.
 #'   Dark color scheme.
+#' @examples
+#' \dontrun{
+#' term_xterm(
+#'   overwrite = TRUE,
+#'   dark = TRUE
+#' )
+#' }
 #' @export
-term_xterm <- function(overwrite = FALSE,
+term_xterm <- function(dir = Sys.getenv("HOME"),
+                       overwrite = FALSE,
                        dark = TRUE) {
-  dir <- Sys.getenv("HOME")
+  if (util_os() == "windows") {
+    stop(
+      "Xterm is not avalable in Windows.\n"
+    )
+  }
   fn_xresources <- file.path(
     dir,
     ".Xresources"
@@ -62,7 +77,7 @@ term_xterm <- function(overwrite = FALSE,
   if (file.exists(fn_xresources)) {
     if (!overwrite) {
       return(
-        warning(
+        message(
           paste(
             fn_xresources,
             "exists and will NOT be overwritten.\n"

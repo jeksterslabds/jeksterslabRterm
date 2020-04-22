@@ -9,6 +9,11 @@ term_install()
 \description{
 Install Terminal Tools
 }
+\examples{
+\dontrun{
+term_install()
+}
+}
 \author{
 Ivan Jacob Agaloos Pesigan
 }
