@@ -66,5 +66,6 @@ unlink(
       dir,
       "tmp"
     )
-  )
+  ),
+  recursive = TRUE
 )
