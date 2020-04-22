@@ -13,7 +13,8 @@ term_renviron(
 }
 \arguments{
 \item{dir}{Character string.
-\code{.Renviron} directory}
+\code{.Renviron} directory.
+Defaults to user's home directory.}
 
 \item{overwrite}{Logical.
 Overwrite existing \code{.Renviron} file in \code{dir}.}
@@ -29,6 +30,14 @@ If unspecified, defaults to
 }
 \description{
 Creates a \code{.Renviron} file in \code{dir}.
+}
+\examples{
+term_renviron(
+  dir = getwd(),
+  overwrite = TRUE,
+  GITHUB_PAT = "123456",
+  libpath = file.path(getwd(), "tmp")
+)
 }
 \author{
 Ivan Jacob Agaloos Pesigan

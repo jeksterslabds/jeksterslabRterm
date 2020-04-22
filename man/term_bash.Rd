@@ -4,9 +4,13 @@
 \alias{term_bash}
 \title{Setup Bash dotfiles}
 \usage{
-term_bash(overwrite = FALSE, vars = NULL)
+term_bash(dir = Sys.getenv("HOME"), overwrite = FALSE, vars = NULL)
 }
 \arguments{
+\item{dir}{Character string.
+\verb{.bash*} directory.
+Defaults to user's home directory.}
+
 \item{overwrite}{Logical.
 Overwrite existing \code{bash} dot files in the home directory.}
 
@@ -21,6 +25,13 @@ Creates the following files:
 \code{.bash_profile},
 \code{.bash_logout}
 in the home directory.
+}
+\examples{
+term_bash(
+  dir = getwd(),
+  overwrite = TRUE,
+  vars = c(GITHUB_PAT = "123456", TRAVIS_TOKEN = "123456")
+)
 }
 \author{
 Ivan Jacob Agaloos Pesigan

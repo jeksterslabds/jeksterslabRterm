@@ -13,7 +13,8 @@ If unspecified, defaults to
 \code{{HOME}/R/{PLATFORM}-library/{R.VERSION}}.}
 
 \item{dir}{Character string.
-\code{.Renviron} directory}
+\code{.Renviron} directory.
+Defaults to user's home directory.}
 }
 \description{
 Sets user library using \code{.libPaths}
