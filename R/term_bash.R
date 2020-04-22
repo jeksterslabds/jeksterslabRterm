@@ -81,6 +81,7 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     ),
     collapse = "\n"
   )
+  neofetch <- "[ -x \"$(command -v neofetch)\" ] && neofetch"
   global <- paste0(
     "################################################################################\n",
     "#====[ Source global definitions if any ]=======================================\n",
@@ -113,6 +114,7 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     )
   }
   bash_rc <- paste(
+    neofetch,
     global,
     aliases,
     bash_prompt,
