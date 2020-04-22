@@ -8,15 +8,24 @@
 #'  in the home directory.
 #'
 #' @author Ivan Jacob Agaloos Pesigan
+#' @param dir Character string.
+#'   `.bash*` directory.
+#'   Defaults to user's home directory.
 #' @param overwrite Logical.
 #'   Overwrite existing `bash` dot files in the home directory.
 #' @param vars Named character vector.
 #'   Variables to export.
 #'   (e.g., `vars = c(GITHUB_PAT = "token_here", TRAVIS_TOKEN = "token_here")`.
+#' @examples
+#' term_bash(
+#'   dir = getwd(),
+#'   overwrite = TRUE,
+#'   vars = c(GITHUB_PAT = "123456", TRAVIS_TOKEN = "123456")
+#' )
 #' @export
-term_bash <- function(overwrite = FALSE,
+term_bash <- function(dir = Sys.getenv("HOME"),
+                      overwrite = FALSE,
                       vars = NULL) {
-  dir <- Sys.getenv("HOME")
   ###############################################################################
   # ====[ bashrc ]===============================================================
   ###############################################################################
