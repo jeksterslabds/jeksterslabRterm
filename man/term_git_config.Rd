@@ -40,3 +40,12 @@ uses the \code{--local} option.}
 \description{
 Git config
 }
+\examples{
+\dontrun{
+term_git_config(
+  name = "User Name",
+  email = "email@email.com",
+  global = TRUE
+)
+}
+}
