@@ -37,8 +37,8 @@ test_that(".Rprofile", {
 })
 #'
 #+ testthat_01, echo=TRUE
-test_that("warnings", {
-  expect_warning(
+test_that("messages", {
+  expect_message(
     term_rprofile(
       dir = dir,
       overwrite = FALSE

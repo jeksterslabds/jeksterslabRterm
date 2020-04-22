@@ -26,6 +26,11 @@
 term_bash <- function(dir = Sys.getenv("HOME"),
                       overwrite = FALSE,
                       vars = NULL) {
+  if (util_os() == "windows") {
+    stop(
+      "Bash is not avalable in Windows.\n"
+    )
+  }
   ###############################################################################
   # ====[ bashrc ]===============================================================
   ###############################################################################
@@ -125,7 +130,7 @@ term_bash <- function(dir = Sys.getenv("HOME"),
   )
   if (file.exists(fn_bashrc)) {
     if (!overwrite) {
-      warning(
+      message(
         paste(
           fn_bashrc,
           "exists and will NOT be overwritten.\n"
@@ -160,7 +165,7 @@ term_bash <- function(dir = Sys.getenv("HOME"),
   )
   if (file.exists(fn_bash_aliases)) {
     if (!overwrite) {
-      warning(
+      message(
         paste(
           fn_bash_aliases,
           "exists and will NOT be overwritten.\n"
@@ -195,7 +200,7 @@ term_bash <- function(dir = Sys.getenv("HOME"),
   )
   if (file.exists(fn_bash_profile)) {
     if (!overwrite) {
-      warning(
+      message(
         paste(
           fn_bash_profile,
           "exists and will NOT be overwritten.\n"
@@ -230,7 +235,7 @@ term_bash <- function(dir = Sys.getenv("HOME"),
   )
   if (file.exists(fn_bash_logout)) {
     if (!overwrite) {
-      warning(
+      message(
         paste(
           fn_bash_logout,
           "exists and will NOT be overwritten.\n"

@@ -10,6 +10,11 @@
 #' @export
 term_xterm <- function(overwrite = FALSE,
                        dark = TRUE) {
+  if (util_os() == "windows") {
+    stop(
+      "Xterm is not avalable in Windows.\n"
+    )
+  }
   dir <- Sys.getenv("HOME")
   fn_xresources <- file.path(
     dir,
@@ -62,7 +67,7 @@ term_xterm <- function(overwrite = FALSE,
   if (file.exists(fn_xresources)) {
     if (!overwrite) {
       return(
-        warning(
+        message(
           paste(
             fn_xresources,
             "exists and will NOT be overwritten.\n"

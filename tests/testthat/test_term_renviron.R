@@ -33,7 +33,7 @@ term_renviron(
 #'
 #' For code coverage.
 #+ covr
-suppressWarnings(
+suppressMessages(
   term_renviron(
     overwrite = FALSE
   )
@@ -47,8 +47,8 @@ test_that(".Renviron", {
 })
 #'
 #+ testthat_01, echo=TRUE
-test_that("warnings", {
-  expect_warning(
+test_that("messages", {
+  expect_message(
     term_renviron(
       dir = dir,
       overwrite = FALSE,

@@ -66,8 +66,8 @@ test_that(".bash_logout", {
   )
 })
 #+ testthat_05, echo=TRUE
-test_that("warnings", {
-  expect_warning(
+test_that("messages", {
+  expect_message(
     term_bash(
       dir = dir,
       overwrite = FALSE,
