@@ -1,1 +1,3 @@
 R/util_os.R
+R/term_git_config.R
+R/term_install.R
