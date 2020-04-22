@@ -1,6 +1,8 @@
 #' Install Terminal Tools
 #'
 #' @author Ivan Jacob Agaloos Pesigan
+#' @examples
+#' term_install()
 #' @export
 term_install <- function() {
   os <- util_os()
