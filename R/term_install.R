@@ -29,6 +29,7 @@ term_install <- function() {
       x = x
     )
     packages <- c(
+      "neofetch",
       "wget",
       "git",
       "bash-completion",
@@ -59,6 +60,7 @@ term_install <- function() {
   }
   if (os == "osx") {
     brew <- c(
+      "neofetch",
       "wget",
       "git",
       "bash-completion",
