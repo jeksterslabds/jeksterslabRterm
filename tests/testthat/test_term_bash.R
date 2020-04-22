@@ -15,7 +15,10 @@ context("Test term_bash.")
 #' ## Set test parameters
 #'
 #+ parameters
-dir <- getwd()
+dir <- file.path(
+  getwd(),
+  "tmp"
+)
 fn_bashrc <- file.path(
   dir,
   ".bashrc"
@@ -110,7 +113,9 @@ if (os != "windows") {
       fn_bashrc,
       fn_bash_aliases,
       fn_bash_profile,
-      fn_bash_logout
-    )
+      fn_bash_logout,
+      dir
+    ),
+    recursive = TRUE
   )
 }

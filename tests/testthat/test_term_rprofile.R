@@ -15,7 +15,10 @@ context("Test term_rprofile.")
 #' ## Set test parameters
 #'
 #+ parameters
-dir <- getwd()
+dir <- file.path(
+  getwd(),
+  "tmp"
+)
 fn_rprofile <- file.path(
   dir,
   ".Rprofile"
@@ -48,5 +51,9 @@ test_that("messages", {
 #'
 #+ cleanup
 unlink(
-  fn_rprofile
+  c(
+    fn_rprofile,
+    dir
+  ),
+  recursive = TRUE
 )

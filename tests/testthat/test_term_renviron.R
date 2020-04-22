@@ -15,7 +15,10 @@ context("Test term_renviron.")
 #' ## Set test parameters
 #'
 #+ parameters
-dir <- getwd()
+dir <- file.path(
+  getwd(),
+  "tmp"
+)
 fn_renviron <- file.path(
   dir,
   ".Renviron"
@@ -62,10 +65,7 @@ test_that("messages", {
 unlink(
   c(
     fn_renviron,
-    file.path(
-      dir,
-      "tmp"
-    )
+    dir
   ),
   recursive = TRUE
 )

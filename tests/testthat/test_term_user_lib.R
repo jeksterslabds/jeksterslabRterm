@@ -15,7 +15,10 @@ context("Test term_user_lib.")
 #' ## Set test parameters
 #'
 #+ parameters
-dir <- getwd()
+dir <- file.path(
+  getwd(),
+  "tmp"
+)
 fn_renviron <- file.path(
   dir,
   ".Renviron"
@@ -60,7 +63,11 @@ test_that(".Renviron", {
 #'
 #+ cleanup
 unlink(
-  fn_renviron
+  c(
+    fn_renviron,
+    dir
+  ),
+  recursive = TRUE
 )
 if (!init) {
   unlink(
