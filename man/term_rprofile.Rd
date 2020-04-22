@@ -16,6 +16,14 @@ Overwrite existing \code{.Rprofile} file in \code{dir}.}
 \description{
 Creates a \code{.Rprofile} file in \code{dir}.
 }
+\examples{
+\dontrun{
+term_rprofile(
+  dir = getwd(),
+  overwrite = TRUE
+)
+}
+}
 \author{
 Ivan Jacob Agaloos Pesigan
 }

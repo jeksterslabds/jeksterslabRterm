@@ -38,7 +38,14 @@ If \code{FALSE},
 uses the \code{--local} option.}
 }
 \description{
-Git config
+Sets up Git configurations
+including
+user name,
+email,
+editor,
+files to ignore,
+and
+commit message.
 }
 \examples{
 \dontrun{

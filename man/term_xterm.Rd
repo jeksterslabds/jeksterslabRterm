@@ -23,6 +23,7 @@ Creates \code{Xterm} \code{.Xresources} in the home directory.
 \examples{
 \dontrun{
 term_xterm(
+  dir = getwd(),
   overwrite = TRUE,
   dark = TRUE
 )

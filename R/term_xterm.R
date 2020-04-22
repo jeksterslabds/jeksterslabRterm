@@ -13,6 +13,7 @@
 #' @examples
 #' \dontrun{
 #' term_xterm(
+#'   dir = getwd(),
 #'   overwrite = TRUE,
 #'   dark = TRUE
 #' )

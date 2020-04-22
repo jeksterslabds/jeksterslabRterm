@@ -13,12 +13,14 @@
 #'   Github Personal Access Token.
 #' @inheritParams term_user_lib
 #' @examples
+#' \dontrun{
 #' term_renviron(
 #'   dir = getwd(),
 #'   overwrite = TRUE,
 #'   GITHUB_PAT = "123456",
 #'   libpath = file.path(getwd(), "tmp")
 #' )
+#' }
 #' @export
 term_renviron <- function(dir = Sys.getenv("HOME"),
                           overwrite = FALSE,

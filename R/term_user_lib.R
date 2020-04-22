@@ -9,6 +9,13 @@
 #'   If unspecified, defaults to
 #'   `{HOME}/R/{PLATFORM}-library/{R.VERSION}`.
 #' @inheritParams term_renviron
+#' @examples
+#' \dontrun{
+#' term_user_lib(
+#'   libpath = file.path(getwd(), "lib"),
+#'   dir = getwd()
+#' )
+#' }
 #' @export
 term_user_lib <- function(libpath = NULL,
                           dir = Sys.getenv("HOME")) {

@@ -7,6 +7,13 @@
 #'   `.Rprofile` directory
 #' @param overwrite Logical.
 #'   Overwrite existing `.Rprofile` file in `dir`.
+#' @examples
+#' \dontrun{
+#' term_rprofile(
+#'   dir = getwd(),
+#'   overwrite = TRUE
+#' )
+#' }
 #' @export
 term_rprofile <- function(dir = Sys.getenv("HOME"),
                           overwrite = FALSE) {

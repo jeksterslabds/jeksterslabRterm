@@ -1,5 +1,14 @@
 #' Git config
 #'
+#' Sets up Git configurations
+#' including
+#' user name,
+#' email,
+#' editor,
+#' files to ignore,
+#' and
+#' commit message.
+#'
 #' @param name Character string.
 #'   `Git` user.name`.
 #' @param email Character string.

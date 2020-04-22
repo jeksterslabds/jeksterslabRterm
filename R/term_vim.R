@@ -1,7 +1,7 @@
 #' Create `.vimrc` File and Install Plugins
 #'
 #' Creates a `.vimrc` file in `dir`
-#' and install plugins.
+#' and installs plugins.
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param dir Character string.
@@ -10,6 +10,14 @@
 #'   Overwrite existing `.vimrc` file in `dir`.
 #' @param plugins Logical.
 #'   Install `vim` plugins.
+#' @examples
+#' \dontrun{
+#' term_vim(
+#'   dir = getwd(),
+#'   overwrite = TRUE,
+#'   plugins = TRUE
+#' )
+#' }
 #' @export
 term_vim <- function(dir = Sys.getenv("HOME"),
                      overwrite = FALSE,

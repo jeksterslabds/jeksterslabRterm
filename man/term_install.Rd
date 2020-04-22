@@ -7,7 +7,12 @@
 term_install()
 }
 \description{
-Install Terminal Tools
+Installs terminal tools.
+Uses package managers to install packages
+(\code{pacman} for Arch Linux based Linux Distributions,
+\code{apt} for Debian based Linux Distributions,
+\code{hombrew} for Mac OSX and
+\code{chocolatey} for Windows.)
 }
 \examples{
 \dontrun{

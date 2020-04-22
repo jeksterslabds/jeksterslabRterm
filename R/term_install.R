@@ -1,5 +1,12 @@
 #' Install Terminal Tools
 #'
+#' Installs terminal tools.
+#' Uses package managers to install packages
+#' (`pacman` for Arch Linux based Linux Distributions,
+#' `apt` for Debian based Linux Distributions,
+#' `hombrew` for Mac OSX and
+#' `chocolatey` for Windows.)
+#'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @examples
 #' \dontrun{

@@ -20,6 +20,14 @@ Defaults to user's home directory.}
 Sets user library using \code{.libPaths}
 and \code{R_LIBS_USER} in \code{.Renviron}.
 }
+\examples{
+\dontrun{
+term_user_lib(
+  libpath = file.path(getwd(), "lib"),
+  dir = getwd()
+)
+}
+}
 \author{
 Ivan Jacob Agaloos Pesigan
 }

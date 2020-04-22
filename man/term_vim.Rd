@@ -18,7 +18,16 @@ Install \code{vim} plugins.}
 }
 \description{
 Creates a \code{.vimrc} file in \code{dir}
-and install plugins.
+and installs plugins.
+}
+\examples{
+\dontrun{
+term_vim(
+  dir = getwd(),
+  overwrite = TRUE,
+  plugins = TRUE
+)
+}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

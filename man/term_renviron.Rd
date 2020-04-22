@@ -32,12 +32,14 @@ If unspecified, defaults to
 Creates a \code{.Renviron} file in \code{dir}.
 }
 \examples{
+\dontrun{
 term_renviron(
   dir = getwd(),
   overwrite = TRUE,
   GITHUB_PAT = "123456",
   libpath = file.path(getwd(), "tmp")
 )
+}
 }
 \author{
 Ivan Jacob Agaloos Pesigan
