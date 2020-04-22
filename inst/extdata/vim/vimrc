@@ -1,7 +1,10 @@
 filetype detect
 
-"====[ vim shell as command prompt ]===========================================
-set shellcmdflag=-ic
+"====[ Vim shell as command prompt ]===========================================
+"set shellcmdflag=-ic
+
+"====[ Bash aliases ]==========================================================
+let $BASH_ENV="~/.bash_aliases"
 
 "====[ Remap ]=================================================================
 " kj and jk to <Esc> 
