@@ -1,5 +1,8 @@
 filetype detect
 
+"====[ vim shell as command prompt ]===========================================
+set shellcmdflag=-ic
+
 "====[ Remap ]=================================================================
 " kj and jk to <Esc> 
 inoremap kj <Esc>
