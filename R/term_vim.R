@@ -45,17 +45,19 @@ term_vim <- function(dir = Sys.getenv("HOME"),
     fn = ".vimrc",
     msg = "Output file:"
   )
-  vimplugins <- system.file(
-    "extdata",
-    "vim",
-    "vim-plugins",
-    package = "jeksterslabRterm",
-    mustWork = TRUE
-  )
-  system(
-    paste(
-      "bash",
-      vimplugins
+  if (plugins) {
+    vimplugins <- system.file(
+      "extdata",
+      "vim",
+      "vim-plugins",
+      package = "jeksterslabRterm",
+      mustWork = TRUE
     )
-  )
+    system(
+      paste(
+        "bash",
+        vimplugins
+      )
+    )
+  }
 }
