@@ -4,9 +4,13 @@
 \alias{term_xterm}
 \title{Create Xterm .Xresources}
 \usage{
-term_xterm(overwrite = FALSE, dark = TRUE)
+term_xterm(dir = Sys.getenv("HOME"), overwrite = FALSE, dark = TRUE)
 }
 \arguments{
+\item{dir}{Character string.
+\code{.Xresources} directory.
+Defaults to user's home directory.}
+
 \item{overwrite}{Logical.
 Overwrite existing \code{.Xresources} dot files in the home directory.}
 
@@ -15,6 +19,14 @@ Dark color scheme.}
 }
 \description{
 Creates \code{Xterm} \code{.Xresources} in the home directory.
+}
+\examples{
+\dontrun{
+term_xterm(
+  overwrite = TRUE,
+  dark = TRUE
+)
+}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

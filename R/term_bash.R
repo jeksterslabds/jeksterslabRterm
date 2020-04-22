@@ -17,11 +17,13 @@
 #'   Variables to export.
 #'   (e.g., `vars = c(GITHUB_PAT = "token_here", TRAVIS_TOKEN = "token_here")`.
 #' @examples
+#' \dontrun{
 #' term_bash(
 #'   dir = getwd(),
 #'   overwrite = TRUE,
 #'   vars = c(GITHUB_PAT = "123456", TRAVIS_TOKEN = "123456")
 #' )
+#' }
 #' @export
 term_bash <- function(dir = Sys.getenv("HOME"),
                       overwrite = FALSE,
