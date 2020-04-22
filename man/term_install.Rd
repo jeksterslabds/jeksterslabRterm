@@ -9,6 +9,9 @@ term_install()
 \description{
 Install Terminal Tools
 }
+\examples{
+term_install()
+}
 \author{
 Ivan Jacob Agaloos Pesigan
 }
