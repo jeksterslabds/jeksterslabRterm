@@ -2,7 +2,9 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @examples
+#' \dontrun{
 #' term_install()
+#' }
 #' @export
 term_install <- function() {
   os <- util_os()
