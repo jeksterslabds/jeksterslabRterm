@@ -10,7 +10,9 @@ term_install()
 Install Terminal Tools
 }
 \examples{
+\dontrun{
 term_install()
+}
 }
 \author{
 Ivan Jacob Agaloos Pesigan
