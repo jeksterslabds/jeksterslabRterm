@@ -26,7 +26,7 @@ term_rprofile <- function(dir = Sys.getenv("HOME"),
   if (file.exists(rprofile)) {
     if (!overwrite) {
       return(
-        message(
+        warning(
           paste(
             rprofile,
             "exists and will NOT be overwritten."
