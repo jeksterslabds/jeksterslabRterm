@@ -4,13 +4,21 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param dir Character string.
-#'   `.Renviron` directory
+#'   `.Renviron` directory.
+#'   Defaults to user's home directory.
 #' @param overwrite Logical.
 #'   Overwrite existing `.Renviron` file in `dir`.
 #' @param GITHUB_PAT Character string.
 #'   Optional argument.
 #'   Github Personal Access Token.
 #' @inheritParams term_user_lib
+#' @examples
+#' term_renviron(
+#'   dir = getwd(),
+#'   overwrite = TRUE,
+#'   GITHUB_PAT = "123456",
+#'   libpath = file.path(getwd(), "tmp")
+#' )
 #' @export
 term_renviron <- function(dir = Sys.getenv("HOME"),
                           overwrite = FALSE,
