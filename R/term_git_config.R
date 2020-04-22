@@ -204,7 +204,6 @@ term_git_config <- function(name = "User Name",
           )
         }
       )
-      print("ignore global\n")
     }
   }
   if (!is.null(msg)) {
