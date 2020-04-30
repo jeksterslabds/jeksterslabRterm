@@ -10,9 +10,9 @@ local({
 platform <- R.version[["platform"]]
 major <- R.version[["major"]]
 minor <- sub(
-  pattern = ".[1-9]",
-  replacement = "",
-  R.version[["minor"]]
+  pattern = "([1-9]).[1-9]",
+  replacement = "\\1",
+  x = R.version[["minor"]]
 )
 version <- paste0(
   major,
