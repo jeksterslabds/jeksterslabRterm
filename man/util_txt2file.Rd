@@ -37,12 +37,14 @@ text <- paste0(
   "Excepteur sint occaecat cupidatat non proident,",
   "sunt in culpa qui officia deserunt mollit anim id est laborum."
 )
+\dontrun{
 util_txt2file(
   text = text,
   dir = getwd(),
   fn = "Lipsum.txt",
   msg = "Output file:"
 )
+}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

@@ -64,6 +64,13 @@ if (!dir.exists(libpath)) {
         )
       }
     }
+    if ("jeksterslabRpkg" %in% installed) {
+      suppressPackageStartupMessages(
+        require(
+          "jeksterslabRpkg"
+        )
+      )
+    }
   }
 }
 .Last <- function() {
@@ -78,6 +85,3 @@ if (!dir.exists(libpath)) {
     )
   }
 }
-#      savehistory(
-#        "~/.Rhistory"
-#      )
