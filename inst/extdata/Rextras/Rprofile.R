@@ -58,19 +58,19 @@ if (!dir.exists(libpath)) {
     installed <- rownames(utils::installed.packages())
     if (Sys.getenv("TERM") == "xterm-256color") {
       if ("colorout" %in% installed) {
-        suppressPackageStartupMessages(
-          require(
-            "colorout"
-          )
+        # suppressPackageStartupMessages(
+        require(
+          "colorout"
         )
+        # )
       }
     }
     if ("jeksterslabRpkg" %in% installed) {
-      suppressPackageStartupMessages(
-        require(
-          "jeksterslabRpkg"
-        )
+      # suppressPackageStartupMessages(
+      require(
+        "jeksterslabRpkg"
       )
+      # )
     }
   }
 }
