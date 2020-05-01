@@ -55,8 +55,9 @@ if (!dir.exists(libpath)) {
         sep = " | "
       )
     )
+    installed <- rownames(utils::installed.packages())
     if (Sys.getenv("TERM") == "xterm-256color") {
-      if ("colorout" %in% rownames(utils::installed.packages())) {
+      if ("colorout" %in% installed) {
         suppressPackageStartupMessages(
           require(
             "colorout"
