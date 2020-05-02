@@ -1,5 +1,4 @@
 ################################################################################
 #====[ Path ]===================================================================
 ################################################################################
-jeksterslabShell="/media/jeksterslab/scripts/shell/jeksterslabShell/src"
-export PATH="$PATH:$jeksterslabShell"
+#export PATH="$PATH:$ADDITION"
