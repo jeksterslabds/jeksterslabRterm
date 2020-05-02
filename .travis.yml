@@ -11,6 +11,10 @@ before_install:
 - Rscript -e 'if (!require("covr")) install.packages("covr")'
 - Rscript -e 'if (!require("pkgdown")) install.packages("pkgdown")'
 after_success:
+- Rscript -e 'if (!require("covr")) install.packages("covr")'
+- Rscript -e 'if (!require("pkgdown")) install.packages("pkgdown")'
+- Rscript -e 'if (!require("remotes")) install.packages("remotes")'
+- Rscript -e 'if (!require("jeksterslabRterm")) remotes::install_github("jeksterslabds/jeksterslabRterm")'
 - Rscript -e 'covr::codecov()'
 - Rscript -e 'pkgdown::build_site()'
 deploy:
