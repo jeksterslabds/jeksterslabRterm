@@ -17,19 +17,19 @@ term_git_config(
 }
 \arguments{
 \item{name}{Character string.
-\code{Git} user.name`.}
+\code{Git} \code{user.name}.}
 
 \item{email}{Character string.
-\code{Git} user.email`.}
+\code{Git} \code{user.email}.}
 
 \item{editor}{Character string.
-\verb{Git core.editor}.}
+\code{Git} \code{core.editor}.}
 
 \item{ignore}{Character vector.
 Patterns of file names and paths to ignore.}
 
 \item{msg}{Character string.
-Git \code{commit.template}.}
+\code{Git} \code{commit.template}.}
 
 \item{global}{Logical.
 If \code{TRUE},
@@ -38,7 +38,7 @@ If \code{FALSE},
 uses the \code{--local} option.}
 }
 \description{
-Sets up Git configurations
+Sets up \code{Git} configurations
 including
 user name,
 email,

@@ -12,7 +12,7 @@ term_bash(dir = Sys.getenv("HOME"), overwrite = FALSE, vars = NULL)
 Defaults to user's home directory.}
 
 \item{overwrite}{Logical.
-Overwrite existing \code{bash} dot files in the home directory.}
+Overwrite existing \code{bash} dot files in \code{dir}.}
 
 \item{vars}{Named character vector.
 Variables to export.
@@ -24,14 +24,17 @@ Creates the following files:
 \code{.bash_aliases},
 \code{.bash_profile},
 \code{.bash_logout}
-in the home directory.
+in \code{dir}.
 }
 \examples{
 \dontrun{
 term_bash(
   dir = getwd(),
   overwrite = TRUE,
-  vars = c(GITHUB_PAT = "123456", TRAVIS_TOKEN = "123456")
+  vars = c(
+    GITHUB_PAT = "123456",
+    TRAVIS_TOKEN = "123456"
+  )
 )
 }
 }

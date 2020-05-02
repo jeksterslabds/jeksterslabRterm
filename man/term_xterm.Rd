@@ -12,7 +12,7 @@ term_xterm(dir = Sys.getenv("HOME"), overwrite = FALSE, dark = TRUE)
 Defaults to user's home directory.}
 
 \item{overwrite}{Logical.
-Overwrite existing \code{.Xresources} dot files in the home directory.}
+Overwrite existing \code{.Xresources} dot files in \code{dir}.}
 
 \item{dark}{Logical.
 Dark color scheme.}

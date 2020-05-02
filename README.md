@@ -15,7 +15,7 @@ status](https://ci.appveyor.com/api/projects/status/github/jeksterslabds/jekster
 <!-- badges: end -->
 
 The goal of `jeksterslabRterm` is to provide useful utility functions to
-support scripting and data analysis.
+setup terminal tools for R scripting.
 
 ## Installation
 

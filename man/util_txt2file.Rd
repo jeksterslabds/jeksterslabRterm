@@ -24,6 +24,7 @@ prints \verb{msg dir/fn}.}
 Writes lines of character strings to file.
 }
 \examples{
+\dontrun{
 text <- paste0(
   "Lorem ipsum dolor sit amet,",
   "consectetur adipiscing elit,",
@@ -37,7 +38,6 @@ text <- paste0(
   "Excepteur sint occaecat cupidatat non proident,",
   "sunt in culpa qui officia deserunt mollit anim id est laborum."
 )
-\dontrun{
 util_txt2file(
   text = text,
   dir = getwd(),

@@ -7,7 +7,7 @@
 #'   `.Xresources` directory.
 #'   Defaults to user's home directory.
 #' @param overwrite Logical.
-#'   Overwrite existing `.Xresources` dot files in the home directory.
+#'   Overwrite existing `.Xresources` dot files in `dir`.
 #' @param dark Logical.
 #'   Dark color scheme.
 #' @examples

@@ -7,6 +7,8 @@
 #' `hombrew` for Mac OSX and
 #' `chocolatey` for Windows.)
 #'
+#' NOTE: `chocolatey` for Windows is not currently implemented.
+#'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @examples
 #' \dontrun{
@@ -94,7 +96,7 @@ term_install <- function() {
     )
     system(
       paste(
-        "brew cak install",
+        "brew cask install",
         cask
       )
     )

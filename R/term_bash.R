@@ -5,14 +5,14 @@
 #' `.bash_aliases`,
 #' `.bash_profile`,
 #' `.bash_logout`
-#'  in the home directory.
+#'  in `dir`.
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param dir Character string.
 #'   `.bash*` directory.
 #'   Defaults to user's home directory.
 #' @param overwrite Logical.
-#'   Overwrite existing `bash` dot files in the home directory.
+#'   Overwrite existing `bash` dot files in `dir`.
 #' @param vars Named character vector.
 #'   Variables to export.
 #'   (e.g., `vars = c(GITHUB_PAT = "token_here", TRAVIS_TOKEN = "token_here")`.
@@ -21,7 +21,10 @@
 #' term_bash(
 #'   dir = getwd(),
 #'   overwrite = TRUE,
-#'   vars = c(GITHUB_PAT = "123456", TRAVIS_TOKEN = "123456")
+#'   vars = c(
+#'     GITHUB_PAT = "123456",
+#'     TRAVIS_TOKEN = "123456"
+#'   )
 #' )
 #' }
 #' @export

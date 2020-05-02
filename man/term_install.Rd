@@ -14,6 +14,9 @@ Uses package managers to install packages
 \code{hombrew} for Mac OSX and
 \code{chocolatey} for Windows.)
 }
+\details{
+NOTE: \code{chocolatey} for Windows is not currently implemented.
+}
 \examples{
 \dontrun{
 term_install()

@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of `jeksterslabRterm` is to provide useful utility functions
-to support scripting and data analysis.
+to setup terminal tools for R scripting.
 
 ## Installation
 
@@ -37,4 +37,3 @@ remotes::install_github("jeksterslabds/jeksterslabRterm")
 
 See [GitHub Pages](https://jeksterslabds.github.io/jeksterslabRterm/index.html)
 for package documentation.
-

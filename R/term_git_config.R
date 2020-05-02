@@ -1,6 +1,6 @@
 #' Git config
 #'
-#' Sets up Git configurations
+#' Sets up `Git` configurations
 #' including
 #' user name,
 #' email,
@@ -10,15 +10,15 @@
 #' commit message.
 #'
 #' @param name Character string.
-#'   `Git` user.name`.
+#'   `Git` `user.name`.
 #' @param email Character string.
-#'   `Git` user.email`.
+#'   `Git` `user.email`.
 #' @param editor Character string.
-#'   `Git core.editor`.
+#'   `Git` `core.editor`.
 #' @param ignore Character vector.
 #'   Patterns of file names and paths to ignore.
 #' @param msg Character string.
-#'   Git `commit.template`.
+#'   `Git` `commit.template`.
 #' @param global Logical.
 #'   If `TRUE`,
 #'   uses the `--global` option.
