@@ -7,32 +7,48 @@
 #'     toc: true
 #' ---
 #'
+#+ include=FALSE, cache=FALSE
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+#'
 #+ setup
 library(testthat)
 library(jeksterslabRterm)
+library(jeksterslabRutils)
 context("Test term_bash.")
 #'
 #' ## Set test parameters
 #'
 #+ parameters
-dir <- file.path(
-  getwd(),
-  "tmp"
+tmp <- file.path(
+  tempdir(),
+  util_rand_str()
+)
+dir.create(tmp)
+on.exit(
+  unlink(
+    tmp,
+    recursive = TRUE
+  )
 )
 fn_bashrc <- file.path(
-  dir,
+  tmp,
   ".bashrc"
 )
 fn_bash_aliases <- file.path(
-  dir,
+  tmp,
   ".bash_aliases"
 )
 fn_bash_profile <- file.path(
-  dir,
+  tmp,
   ".bash_profile"
 )
 fn_bash_logout <- file.path(
-  dir,
+  tmp,
   ".bash_logout"
 )
 os <- util_os()
@@ -42,7 +58,7 @@ os <- util_os()
 #+ test
 if (os != "windows") {
   term_bash(
-    dir = dir,
+    dir = tmp,
     overwrite = TRUE,
     vars = c(GITHUB_PAT = "123456", TRAVIS_TOKEN = "123456")
   )
@@ -85,7 +101,7 @@ if (os != "windows") {
   test_that("messages", {
     expect_message(
       term_bash(
-        dir = dir,
+        dir = tmp,
         overwrite = FALSE,
         vars = c(GITHUB_PAT = "123456", TRAVIS_TOKEN = "123456")
       )
@@ -98,7 +114,7 @@ if (os == "windows") {
   test_that("windows", {
     expect_error(
       term_bash(
-        dir = dir,
+        dir = tmp,
         overwrite = FALSE,
         vars = c(GITHUB_PAT = "123456", TRAVIS_TOKEN = "123456")
       )
@@ -107,15 +123,13 @@ if (os == "windows") {
 }
 #'
 #+ cleanup
-if (os != "windows") {
-  unlink(
-    c(
-      fn_bashrc,
-      fn_bash_aliases,
-      fn_bash_profile,
-      fn_bash_logout,
-      dir
-    ),
-    recursive = TRUE
-  )
-}
+unlink(
+  c(
+    fn_bashrc,
+    fn_bash_aliases,
+    fn_bash_profile,
+    fn_bash_logout,
+    tmp
+  ),
+  recursive = TRUE
+)

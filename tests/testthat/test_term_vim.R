@@ -7,17 +7,36 @@
 #'     toc: true
 #' ---
 #'
+#+ include=FALSE, cache=FALSE
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+#'
 #+ setup
 library(testthat)
 library(jeksterslabRterm)
+library(jeksterslabRutils)
 context("Test term_vim.")
 #'
 #' ## Set test parameters
 #'
 #+ parameters
-dir <- getwd()
+tmp <- file.path(
+  tempdir(),
+  util_rand_str()
+)
+dir.create(tmp)
+on.exit(
+  unlink(
+    tmp,
+    recursive = TRUE
+  )
+)
 fn_vimrc <- file.path(
-  dir,
+  tmp,
   ".vimrc"
 )
 #'
@@ -25,7 +44,7 @@ fn_vimrc <- file.path(
 #'
 #+ test
 term_vim(
-  dir = dir,
+  dir = tmp,
   overwrite = TRUE,
   plugins = FALSE
 )
@@ -39,7 +58,7 @@ test_that(".vimrc", {
 test_that("messages", {
   expect_message(
     term_vim(
-      dir = dir,
+      dir = tmp,
       overwrite = FALSE,
       plugins = FALSE
     )
@@ -48,5 +67,9 @@ test_that("messages", {
 #'
 #+ cleanup
 unlink(
-  fn_vimrc
+  c(
+    fn_vimrc,
+    tmp
+  ),
+  recursive = TRUE
 )

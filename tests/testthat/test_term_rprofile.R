@@ -7,20 +7,36 @@
 #'     toc: true
 #' ---
 #'
+#+ include=FALSE, cache=FALSE
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+#'
 #+ setup
 library(testthat)
 library(jeksterslabRterm)
+library(jeksterslabRutils)
 context("Test term_rprofile.")
 #'
 #' ## Set test parameters
 #'
 #+ parameters
-dir <- file.path(
-  getwd(),
-  "tmp"
+tmp <- file.path(
+  tempdir(),
+  util_rand_str()
+)
+dir.create(tmp)
+on.exit(
+  unlink(
+    tmp,
+    recursive = TRUE
+  )
 )
 fn_rprofile <- file.path(
-  dir,
+  tmp,
   ".Rprofile"
 )
 #'
@@ -28,7 +44,7 @@ fn_rprofile <- file.path(
 #'
 #+ test
 term_rprofile(
-  dir = dir,
+  dir = tmp,
   overwrite = TRUE
 )
 #'
@@ -39,11 +55,11 @@ test_that(".Rprofile", {
   )
 })
 #'
-#+ testthat_01, echo=TRUE
+#+ testthat_02, echo=TRUE
 test_that("messages", {
   expect_message(
     term_rprofile(
-      dir = dir,
+      dir = tmp,
       overwrite = FALSE
     )
   )
@@ -53,7 +69,7 @@ test_that("messages", {
 unlink(
   c(
     fn_rprofile,
-    dir
+    tmp
   ),
   recursive = TRUE
 )

@@ -7,31 +7,51 @@
 #'     toc: true
 #' ---
 #'
+#+ include=FALSE, cache=FALSE
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+#'
 #+ setup
 library(testthat)
 library(jeksterslabRterm)
+library(jeksterslabRutils)
 context("Test term_renviron.")
 #'
 #' ## Set test parameters
 #'
 #+ parameters
-dir <- file.path(
-  getwd(),
-  "tmp"
+tmp <- file.path(
+  tempdir(),
+  util_rand_str()
+)
+dir.create(tmp)
+on.exit(
+  unlink(
+    tmp,
+    recursive = TRUE
+  )
 )
 fn_renviron <- file.path(
-  dir,
+  tmp,
   ".Renviron"
+)
+libpath <- file.path(
+  tmp,
+  "lib"
 )
 #'
 #' ## Run test
 #'
 #+ test
 term_renviron(
-  dir = dir,
+  dir = tmp,
   overwrite = TRUE,
   GITHUB_PAT = "123456",
-  libpath = file.path(dir, "tmp")
+  libpath = libpath
 )
 #'
 #' For code coverage.
@@ -49,14 +69,14 @@ test_that(".Renviron", {
   )
 })
 #'
-#+ testthat_01, echo=TRUE
+#+ testthat_02, echo=TRUE
 test_that("messages", {
   expect_message(
     term_renviron(
-      dir = dir,
+      dir = tmp,
       overwrite = FALSE,
       GITHUB_PAT = "123456",
-      libpath = file.path(dir, "tmp")
+      libpath = file.path(tmp, "tmp")
     )
   )
 })
@@ -65,7 +85,8 @@ test_that("messages", {
 unlink(
   c(
     fn_renviron,
-    dir
+    tmp,
+    libpath
   ),
   recursive = TRUE
 )

@@ -7,20 +7,36 @@
 #'     toc: true
 #' ---
 #'
+#+ include=FALSE, cache=FALSE
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+#'
 #+ setup
 library(testthat)
 library(jeksterslabRterm)
+library(jeksterslabRutils)
 context("Test term_user_lib.")
 #'
 #' ## Set test parameters
 #'
 #+ parameters
-dir <- file.path(
-  getwd(),
-  "tmp"
+tmp <- file.path(
+  tempdir(),
+  util_rand_str()
+)
+dir.create(tmp)
+on.exit(
+  unlink(
+    tmp,
+    recursive = TRUE
+  )
 )
 fn_renviron <- file.path(
-  dir,
+  tmp,
   ".Renviron"
 )
 # The library path is set to `{HOME}/R/{PLATFORM}-library/{R.VERSION}`
@@ -51,7 +67,7 @@ init <- dir.exists(libpath)
 #'
 #+ test
 term_user_lib(
-  dir = dir
+  dir = tmp
 )
 #'
 #+ testthat_01, echo=TRUE
@@ -65,7 +81,7 @@ test_that(".Renviron", {
 unlink(
   c(
     fn_renviron,
-    dir
+    tmp
   ),
   recursive = TRUE
 )
