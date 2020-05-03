@@ -32,6 +32,7 @@
 #'   global = TRUE
 #' )
 #' }
+#' @importFrom jeksterslabRutils util_os
 #' @export
 term_git_config <- function(name = "User Name",
                             email = "email@email.com",

@@ -16,6 +16,7 @@
 #'   dir = getwd()
 #' )
 #' }
+#' @importFrom jeksterslabRutils util_txt2file
 #' @export
 term_user_lib <- function(libpath = NULL,
                           dir = Sys.getenv("HOME")) {
