@@ -55,8 +55,8 @@ test_that(".vimrc", {
   )
 })
 #+ testthat_02, echo=TRUE
-test_that("messages", {
-  expect_message(
+test_that("warning", {
+  expect_warning(
     term_vim(
       dir = tmp,
       overwrite = FALSE,

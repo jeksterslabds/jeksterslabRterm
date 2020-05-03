@@ -70,8 +70,8 @@ test_that(".Renviron", {
 })
 #'
 #+ testthat_02, echo=TRUE
-test_that("messages", {
-  expect_message(
+test_that("warning", {
+  expect_warning(
     term_renviron(
       dir = tmp,
       overwrite = FALSE,

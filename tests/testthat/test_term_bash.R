@@ -98,8 +98,8 @@ if (os != "windows") {
 }
 #+ testthat_05, echo=TRUE
 if (os != "windows") {
-  test_that("messages", {
-    expect_message(
+  test_that("warning", {
+    expect_warning(
       term_bash(
         dir = tmp,
         overwrite = FALSE,
