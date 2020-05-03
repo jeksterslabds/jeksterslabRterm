@@ -1,8 +1,6 @@
 PREFIX=/media/jeksterslab/scripts/r
 PKG=${PREFIX}/jeksterslabRterm
-UTILS=${PREFIX}/jeksterslabRutils
 RPKG=${PKG}/R
-RUTILS=${UTILS}/R
 
 .PHONY: all clean
 
