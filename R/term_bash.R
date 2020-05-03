@@ -133,21 +133,12 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     bash_path,
     sep = "\n\n"
   )
-  if (file.exists(fn_bashrc)) {
-    if (!overwrite) {
-      message(
-        paste(
-          fn_bashrc,
-          "exists and will NOT be overwritten.\n"
-        )
-      )
-    }
-  }
   util_txt2file(
     text = bash_rc,
     dir = dir,
     fn = ".bashrc",
-    msg = "Output file:"
+    msg = "Output file:",
+    overwrite = overwrite
   )
   ###############################################################################
   # ====[ bash_aliases ]=========================================================
@@ -168,21 +159,12 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     ),
     collapse = "\n"
   )
-  if (file.exists(fn_bash_aliases)) {
-    if (!overwrite) {
-      message(
-        paste(
-          fn_bash_aliases,
-          "exists and will NOT be overwritten.\n"
-        )
-      )
-    }
-  }
   util_txt2file(
     text = bash_aliases,
     dir = dir,
     fn = ".bash_aliases",
-    msg = "Output file:"
+    msg = "Output file:",
+    overwrite = overwrite
   )
   ###############################################################################
   # ====[ bash_profile ]=========================================================
@@ -203,21 +185,12 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     ),
     collapse = "\n"
   )
-  if (file.exists(fn_bash_profile)) {
-    if (!overwrite) {
-      message(
-        paste(
-          fn_bash_profile,
-          "exists and will NOT be overwritten.\n"
-        )
-      )
-    }
-  }
   util_txt2file(
     text = bash_profile,
     dir = dir,
     fn = ".bash_profile",
-    msg = "Output file:"
+    msg = "Output file:",
+    overwrite = overwrite
   )
   ###############################################################################
   # ====[ bash_logout ]==========================================================
@@ -238,20 +211,11 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     ),
     collapse = "\n"
   )
-  if (file.exists(fn_bash_logout)) {
-    if (!overwrite) {
-      message(
-        paste(
-          fn_bash_logout,
-          "exists and will NOT be overwritten.\n"
-        )
-      )
-    }
-  }
   util_txt2file(
     text = bash_logout,
     dir = dir,
     fn = ".bash_logout",
-    msg = "Output file:"
+    msg = "Output file:",
+    overwrite = overwrite
   )
 }

@@ -30,22 +30,11 @@ term_rprofile <- function(dir = Sys.getenv("HOME"),
       mustWork = TRUE
     )
   )
-  if (file.exists(rprofile)) {
-    if (!overwrite) {
-      return(
-        message(
-          paste(
-            rprofile,
-            "exists and will NOT be overwritten."
-          )
-        )
-      )
-    }
-  }
   util_txt2file(
     text = output,
     dir = dir,
     fn = ".Rprofile",
-    msg = "Output file:"
+    msg = "Output file:",
+    overwrite = overwrite
   )
 }

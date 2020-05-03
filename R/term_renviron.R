@@ -71,23 +71,12 @@ term_renviron <- function(dir = Sys.getenv("HOME"),
     GITHUB_PAT,
     sep = "\n"
   )
-  if (file.exists(renviron)) {
-    if (!overwrite) {
-      return(
-        message(
-          paste(
-            renviron,
-            "exists and will NOT be overwritten.\n"
-          )
-        )
-      )
-    }
-  }
   util_txt2file(
     text = output,
     dir = dir,
     fn = ".Renviron",
-    msg = "Output file:"
+    msg = "Output file:",
+    overwrite = overwrite
   )
   term_user_lib(
     libpath = libpath,

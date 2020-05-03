@@ -91,7 +91,8 @@ term_xterm <- function(dir = Sys.getenv("HOME"),
     text = output,
     dir = dir,
     fn = ".Xresources",
-    msg = "Output file:"
+    msg = "Output file:",
+    overwrite = overwrite
   )
   system(
     paste(

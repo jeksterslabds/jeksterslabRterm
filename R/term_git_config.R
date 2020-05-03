@@ -24,6 +24,10 @@
 #'   uses the `--global` option.
 #'   If `FALSE`,
 #'   uses the `--local` option.
+#' @param overwrite Logical.
+#'   Overwrite existing `git` dot files
+#'   in `$HOME` (`global = TRUE`)
+#'   or working directory (`global = FALSE`).
 #' @examples
 #' \dontrun{
 #' term_git_config(
@@ -52,7 +56,8 @@ term_git_config <- function(name = "User Name",
                               "\n\n",
                               "[Ticket: X]"
                             ),
-                            global = TRUE) {
+                            global = TRUE,
+                            overwrite = FALSE) {
   home <- Sys.getenv("HOME")
   wd <- getwd()
   os <- util_os()
@@ -199,7 +204,8 @@ term_git_config <- function(name = "User Name",
     util_txt2file(
       text = ignore,
       dir = dir,
-      fn = ignore_fn
+      fn = ignore_fn,
+      overwrite = overwrite
     )
     ignore <- paste(
       git_config,
@@ -228,7 +234,8 @@ term_git_config <- function(name = "User Name",
     util_txt2file(
       text = msg,
       dir = dir,
-      fn = ".gitmessage"
+      fn = ".gitmessage",
+      overwrite = overwrite
     )
     msg <- paste(
       git_config,

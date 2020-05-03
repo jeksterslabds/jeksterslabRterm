@@ -35,23 +35,12 @@ term_vim <- function(dir = Sys.getenv("HOME"),
       mustWork = TRUE
     )
   )
-  if (file.exists(vimrc)) {
-    if (!overwrite) {
-      return(
-        message(
-          paste(
-            vimrc,
-            "exists and will NOT be overwritten."
-          )
-        )
-      )
-    }
-  }
   util_txt2file(
     text = output,
     dir = dir,
     fn = ".vimrc",
-    msg = "Output file:"
+    msg = "Output file:",
+    overwrite = overwrite
   )
   if (plugins) {
     vimplugins <- system.file(
