@@ -18,5 +18,5 @@ If \code{FALSE}, uses \verb{brew install ...}.}
 Add third-party repositories.}
 }
 \description{
-Install \code{Homebrew} and install
+Install \code{Homebrew} and install packages.
 }

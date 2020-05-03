@@ -1,6 +1,7 @@
 #' Homebrew
 #'
-#' Install `Homebrew` and install
+#' Install `Homebrew` and install packages.
+#'
 #' @param packages Character vector.
 #'   Packages to install.
 #' @param cask Logical.
