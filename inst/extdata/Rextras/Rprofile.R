@@ -56,12 +56,14 @@ if (!dir.exists(libpath)) {
       )
     )
     installed <- rownames(utils::installed.packages())
-    if ("jeksterslabRpkg" %in% installed) {
-      # suppressPackageStartupMessages(
+    if ("jeksterslabRutils" %in% installed & "jeksterslabRpkg" %in% installed) {
       require(
-        "jeksterslabRpkg"
+        "jeksterslabRutils"
       )
-      # )
+      con <- "https://raw.githubusercontent.com/jeksterslabds/jeksterslabRpkg/master/R/pkg_aliases.R"
+      if (util_url_exists(con)) {
+        source(con)
+      }
     }
     if (Sys.getenv("TERM") == "xterm-256color") {
       if ("colorout" %in% installed) {
