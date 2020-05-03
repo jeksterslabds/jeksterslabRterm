@@ -17,6 +17,10 @@ Encoding: UTF-8
 LazyData: true
 Language: en-US
 Depends: R (>= 3.5.0)
+Imports:
+    jeksterslabRutils
+Remotes:
+    jeksterslabds/jeksterslabRutils
 Suggests:
     knitr,
     testthat
