@@ -7,40 +7,12 @@ local({
   options(repos = r)
 })
 # Set library path
-platform <- R.version[["platform"]]
-major <- R.version[["major"]]
-minor <- sub(
-  pattern = "^(\\d+)\\.\\d+$",
-  replacement = "\\1",
-  x = R.version[["minor"]]
-)
-version <- paste0(
-  major,
-  ".",
-  minor
-)
-libpath <- file.path(
-  Sys.getenv("HOME"),
-  "R",
-  paste0(
-    platform,
-    "-library"
-  ),
-  version
-)
-if (!dir.exists(libpath)) {
-  dir.create(
-    libpath,
-    recursive = TRUE
-  )
-}
-.libPaths(
-  unique(
-    c(
-      libpath,
-      .libPaths()
-    )
-  )
+source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRutils/master/R/util_txt2file.R")
+source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRterm/master/R/term_user_lib.R")
+term_user_lib(
+  libpath = NULL,
+  dir = Sys.getenv("HOME"),
+  overwrite = TRUE
 )
 .First <- function() {
   if (interactive()) {

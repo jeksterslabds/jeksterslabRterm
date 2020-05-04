@@ -56,8 +56,7 @@ libpath <- file.path(
   Sys.getenv("HOME"),
   "R",
   paste0(
-    platform,
-    "-library"
+    platform
   ),
   version
 )
