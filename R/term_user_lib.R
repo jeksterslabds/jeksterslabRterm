@@ -1,14 +1,14 @@
-#' Set User Library
+#' Set R User Library
 #'
-#' Sets user library using `.libPaths`
+#' Sets `R` user library using `.libPaths`
 #' and `R_LIBS_USER` in `.Renviron`.
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param libpath Character string.
 #'   User library path.
 #'   If unspecified, defaults to
-#'   and returns the absolute path of
-#'   `{HOME}/R/{PLATFORM}-library/{R.VERSION}`.
+#'   `{HOME}/R/{PLATFORM}/{R.VERSION}`
+#'   (`${HOME}/R/%p/%v`).
 #' @param overwrite Logical.
 #'   If `.Renviron` exists in `dir`,
 #'   the variable `R_LIBS_USER`
@@ -31,7 +31,6 @@ term_user_lib <- function(libpath = NULL,
                           dir = Sys.getenv("HOME"),
                           overwrite = TRUE) {
   if (is.null(libpath)) {
-    # The library path is set to `{HOME}/R/{PLATFORM}-library/{R.VERSION}`
     platform <- R.version[["platform"]]
     major <- R.version[["major"]]
     minor <- sub(
@@ -44,18 +43,17 @@ term_user_lib <- function(libpath = NULL,
       ".",
       minor
     )
-    libpath <- file.path(
-      Sys.getenv("HOME"),
-      "R",
-      paste0(
-        platform,
-        "-library"
-      ),
-      version
+    # absolute path for ${HOME}/R/%p/%v
+    libpath <- normalizePath(
+      file.path(
+        Sys.getenv("HOME"),
+        "R",
+        paste0(
+          platform
+        ),
+        version
+      )
     )
-    out <- TRUE
-  } else {
-    out <- FALSE
   }
   if (!dir.exists(libpath)) {
     dir.create(
@@ -78,14 +76,14 @@ term_user_lib <- function(libpath = NULL,
     libpath,
     "\""
   )
-  cat(
+  message(
     paste(
-      "Library path:",
+      "User library path:",
       libpath,
       "\n"
     )
   )
-  # Generate `{HOME}/.Renviron` with the environment variable `R_LIBS_USER={HOME}/R/{PLATFORM}-library/{R.VERSION}`.
+  # Generate `dir/.Renviron` with the environment variable `R_LIBS_USER="{libpath}"`.
   renviron <- file.path(
     dir,
     ".Renviron"
@@ -124,11 +122,9 @@ term_user_lib <- function(libpath = NULL,
     msg = "Added R_LIBS_USER to",
     overwrite = overwrite
   )
-  if (out) {
-    return(
-      normalizePath(
-        libpath
-      )
+  invisible(
+    normalizePath(
+      libpath
     )
-  }
+  )
 }
