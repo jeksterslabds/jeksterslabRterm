@@ -6,14 +6,6 @@ local({
   r["CRAN"] <- "https://cran.rstudio.com/"
   options(repos = r)
 })
-# Set library path
-source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRutils/master/R/util_txt2file.R")
-source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRterm/master/R/term_user_lib.R")
-term_user_lib(
-  libpath = NULL,
-  dir = Sys.getenv("HOME"),
-  overwrite = TRUE
-)
 .First <- function() {
   if (interactive()) {
     options(
@@ -39,11 +31,9 @@ term_user_lib(
     }
     if (Sys.getenv("TERM") == "xterm-256color") {
       if ("colorout" %in% installed) {
-        # suppressPackageStartupMessages(
         require(
           "colorout"
         )
-        # )
       }
     }
   }
