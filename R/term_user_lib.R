@@ -119,7 +119,11 @@ term_user_lib <- function(libpath = NULL,
     text = R_LIBS_USER,
     dir = dir,
     fn = ".Renviron",
-    msg = "Added R_LIBS_USER to",
+    msg = paste(
+      "Added",
+      R_LIBS_USER,
+      "to"
+    ),
     overwrite = overwrite
   )
   invisible(
