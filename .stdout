@@ -1,0 +1,8 @@
+make clean
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRterm/docs/*
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRterm/man/*
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRterm/tests/testthat/*.html
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRterm/tests/testthat/*.md
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRterm/vignettes/*.html
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRterm/vignettes/*.md
+git add --all
