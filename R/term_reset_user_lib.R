@@ -31,14 +31,7 @@ term_reset_user_lib <- function() {
     libpath,
     recursive = TRUE
   )
-  if (exit_code == 0) {
-    message(
-      paste(
-        libpath,
-        "deleted.\n"
-      )
-    )
-  } else {
+  if (exit_code > 0) {
     stop(
       paste0(
         "unlink(",
@@ -54,5 +47,11 @@ term_reset_user_lib <- function() {
     libpath = libpath,
     dir = dir,
     overwrite = overwrite
+  )
+  message(
+    paste(
+      libpath,
+      "was emptied.\n"
+    )
   )
 }
