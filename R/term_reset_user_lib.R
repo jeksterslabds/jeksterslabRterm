@@ -27,10 +27,29 @@ term_reset_user_lib <- function() {
       overwrite = overwrite
     )
   )
-  unlink(
+  exit_code <- unlink(
     libpath,
     recursive = TRUE
   )
+  if (exit_code == 0) {
+    message(
+      paste(
+      libpath,
+      "deleted.\n"
+      )
+    )
+  } else {
+    stop(
+      paste0(
+        "unlink(",
+        "\"",
+        libpath,
+        "\"",
+        ", recursive = TRUE)",
+        " returned an error.\n"
+      )
+    )
+  }
   term_user_lib(
     libpath = libpath,
     dir = dir,
