@@ -1,18 +1,25 @@
 #' Reset R User Library.
 #'
 #' Resets the R user library by doing the following:
-#' - removes contents of R user library (`libpath`) and
-#' - executes `term_user_lib`
+#' - removes contents of R user library (`{HOME}/R/{PLATFORM}/{R.VERSION}`) and
+#' - executes `term_user_lib` with arguments
+#'   `libpath = NULL`,
+#'   `dir = Sys.getenv("HOME")`, and
+#'   `overwrite = TRUE`.
 #' **WARNING:**
 #' This function
-#' **permanently deletes files in `libpath`**.
+#' **permanently deletes files in `{HOME}/R/{PLATFORM}/{R.VERSION}`**.
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @inheritParams term_user_lib
 #' @export
-term_reset_user_lib <- function(libpath = NULL,
-                                dir = Sys.getenv("HOME"),
-                                overwrite = TRUE) {
+term_reset_user_lib <- function() {
+  ###########################################################
+  # arguments are hard coded to prevent accidental clobbering
+  libpath <- NULL
+  dir <- Sys.getenv("HOME")
+  overwrite <- TRUE
+  ###########################################################
   libpath <- suppressMessages(
     term_user_lib(
       libpath = libpath,
@@ -25,7 +32,8 @@ term_reset_user_lib <- function(libpath = NULL,
     recursive = TRUE
   )
   term_user_lib(
-    libpath = dir,
+    libpath = libpath,
+    dir = dir,
     overwrite = overwrite
   )
 }
