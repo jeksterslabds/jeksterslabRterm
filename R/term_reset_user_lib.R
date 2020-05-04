@@ -34,8 +34,8 @@ term_reset_user_lib <- function() {
   if (exit_code == 0) {
     message(
       paste(
-      libpath,
-      "deleted.\n"
+        libpath,
+        "deleted.\n"
       )
     )
   } else {
