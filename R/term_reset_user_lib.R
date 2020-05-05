@@ -11,7 +11,6 @@
 #' **permanently deletes files in `{HOME}/R/{PLATFORM}/{R.VERSION}`**.
 #'
 #' @author Ivan Jacob Agaloos Pesigan
-#' @inheritParams term_user_lib
 #' @export
 term_reset_user_lib <- function() {
   ###########################################################
