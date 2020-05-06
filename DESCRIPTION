@@ -18,11 +18,9 @@ LazyData: true
 Language: en-US
 Depends: R (>= 3.5.0)
 Imports:
-    jeksterslabRutils,
-    colorout
+    jeksterslabRutils
 Remotes:
-    jeksterslabds/jeksterslabRutils,
-    jalvesaq/colorout
+    jeksterslabds/jeksterslabRutils
 Suggests:
     knitr,
     testthat
