@@ -2,9 +2,11 @@
 #' title: "Test: term_renviron"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
-#' output:
-#'   rmarkdown::github_document:
-#'     toc: true
+#' output: rmarkdown::html_vignette
+#' vignette: >
+#'   %\VignetteIndexEntry{Test: term_renviron}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ include=FALSE, cache=FALSE
