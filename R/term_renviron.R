@@ -90,5 +90,3 @@ term_renviron <- function(dir = Sys.getenv("HOME"),
     dir = dir
   )
 }
-
-
