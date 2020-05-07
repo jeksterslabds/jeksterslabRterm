@@ -18,7 +18,8 @@ LazyData: true
 Language: en-US
 Depends: R (>= 3.5.0)
 Imports:
-    jeksterslabRutils
+    jeksterslabRutils,
+    curl
 Remotes:
     jeksterslabds/jeksterslabRutils
 Suggests:
