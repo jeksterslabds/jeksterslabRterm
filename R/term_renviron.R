@@ -63,7 +63,13 @@ term_renviron <- function(dir = Sys.getenv("HOME"),
       GITHUB_PAT
     )
   }
+  if (util_os() == "linux") {
+    R_BROWSER <- "R_BROWSER=${R_BROWSER-'/usr/bin/xdg-open'}"
+  } else {
+    R_BROWSER <- ""
+  }
   output <- paste(
+    R_BROWSER,
     R_COMPLETION,
     R_ENVIRON_USER,
     R_PROFILE_USER,
@@ -83,3 +89,5 @@ term_renviron <- function(dir = Sys.getenv("HOME"),
     dir = dir
   )
 }
+
+
