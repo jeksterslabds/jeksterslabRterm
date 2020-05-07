@@ -21,6 +21,7 @@
 #'   libpath = file.path(getwd(), "tmp")
 #' )
 #' }
+#' @importFrom jeksterslabRutils util_os
 #' @export
 term_renviron <- function(dir = Sys.getenv("HOME"),
                           overwrite = FALSE,
