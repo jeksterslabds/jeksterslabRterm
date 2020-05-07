@@ -16,6 +16,13 @@
 #' @param vars Named character vector.
 #'   Variables to export.
 #'   (e.g., `vars = c(GITHUB_PAT = "token_here", TRAVIS_TOKEN = "token_here")`.
+#' @param conda Logical.
+#'   Add Miniconda `PATH` to `.bashrc`.
+#' @param conda_path Character string.
+#'   Miniconda `PATH`.
+#'   If unspecified,
+#'   defaults to
+#'   `{HOME}/.local/miniconda3/bin`.
 #' @examples
 #' \dontrun{
 #' term_bash(
@@ -27,10 +34,13 @@
 #'   )
 #' )
 #' }
+#' @importFrom curl curl_download
 #' @export
 term_bash <- function(dir = Sys.getenv("HOME"),
                       overwrite = FALSE,
-                      vars = NULL) {
+                      vars = NULL,
+                      conda = FALSE,
+                      conda_path = NULL) {
   if (util_os() == "windows") {
     stop(
       "Bash is not avalable in Windows.\n"
@@ -91,6 +101,36 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     ),
     collapse = "\n"
   )
+  if (conda) {
+    if (is.null(conda_path)) {
+      conda_path <- paste0(
+        file.path(
+          Sys.getenv("HOME"),
+          ".local",
+          "miniconda3",
+          "bin"
+        )
+      )
+    }
+    conda_path <- paste0(
+      "export PATH=",
+      conda_path,
+      ":$PATH"
+    )
+    bash_path <- paste0(
+      bash_path,
+      "\n",
+      conda_path
+    )
+    # paste0(
+    #  "eval \"$(",
+    #  file.path(
+    #    conda_path,
+    #    "conda"
+    #  ),
+    #  " shell.bash hook)"
+    # )
+  }
   neofetch <- "[ -x \"$(command -v neofetch)\" ] && neofetch"
   global <- paste0(
     "################################################################################\n",
@@ -185,6 +225,25 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     ),
     collapse = "\n"
   )
+  destfile <- file.path(
+    dir,
+    ".git-completion.bash"
+  )
+  curl_download(
+    url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash",
+    destfile = destfile
+  )
+  bash_profile <- paste0(
+    bash_profile,
+    "\n",
+    "if [ -f ",
+    destfile,
+    " ]; then",
+    "\n",
+    "\t", ". ", destfile,
+    "\n",
+    "fi"
+  )
   util_txt2file(
     text = bash_profile,
     dir = dir,
@@ -192,6 +251,7 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     msg = "Output file:",
     overwrite = overwrite
   )
+
   ###############################################################################
   # ====[ bash_logout ]==========================================================
   ###############################################################################
