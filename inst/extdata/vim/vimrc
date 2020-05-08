@@ -17,10 +17,6 @@ xnoremap <Space> <PageDown>
 "====[ Highlighting ]==========================================================
 " Syntax
 syntax enable
-" Solarized colorscheme
-set background=dark
-"set background=light
-colorscheme default
 " Search
 set hlsearch
 " Current line in insert mode
@@ -33,7 +29,8 @@ if &diff
 endif
 
 "====[ Line numbers ]==========================================================
-set number
+set number relativenumber
+set nu rnu
 
 "====[ Enable tabs in makefiles ]==============================================
 autocmd FileType make set noexpandtab
