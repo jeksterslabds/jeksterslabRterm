@@ -124,11 +124,6 @@ term_bash <- function(dir = Sys.getenv("HOME"),
       conda_path_bin,
       ":$PATH"
     )
-    bash_path <- paste0(
-      bash_path,
-      "\n",
-      export_conda_path_bin
-    )
     conda_bashrc <- paste0(
       readLines(
         con = system.file(
@@ -151,15 +146,14 @@ term_bash <- function(dir = Sys.getenv("HOME"),
       replacement = conda_path,
       x = conda_bashrc
     )
-
     if (conda_auto_activate_base) {
-      paste0(
+      conda_bashrc <- paste0(
         conda_bashrc,
         "\n",
         "CONDA_AUTO_ACTIVATE_BASE=true"
       )
     } else {
-      paste0(
+      conda_bashrc <- paste0(
         conda_bashrc,
         "\n",
         "CONDA_AUTO_ACTIVATE_BASE=false"
