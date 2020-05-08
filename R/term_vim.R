@@ -10,6 +10,9 @@
 #'   Overwrite existing `.vimrc` file in `dir`.
 #' @param plugins Logical.
 #'   Install `vim` plugins.
+#' @param dark Logical.
+#'   Dark background.
+#' @param colorscheme Character string.
 #' @examples
 #' \dontrun{
 #' term_vim(
@@ -21,19 +24,39 @@
 #' @export
 term_vim <- function(dir = Sys.getenv("HOME"),
                      overwrite = FALSE,
-                     plugins = FALSE) {
+                     plugins = FALSE,
+                     dark = TRUE,
+                     colorscheme = "default") {
   vimrc <- file.path(
     dir,
     ".vimrc"
   )
-  output <- readLines(
-    con = system.file(
-      "extdata",
-      "vim",
-      "vimrc",
-      package = "jeksterslabRterm",
-      mustWork = TRUE
-    )
+  output <- paste0(
+    readLines(
+      con = system.file(
+        "extdata",
+        "vim",
+        "vimrc",
+        package = "jeksterslabRterm",
+        mustWork = TRUE
+      )
+    ),
+    collapse = "\n"
+  )
+  if (dark) {
+    background <- "dark"
+  } else {
+    background <- "light"
+  }
+  colorscheme <- paste0(
+    "\"====[ Colorscheme ]===========================================================", "\n",
+    "set background=", background, "\n",
+    "colorscheme ", colorscheme
+  )
+  output <- paste0(
+    output,
+    "\n\n",
+    colorscheme
   )
   util_txt2file(
     text = output,
