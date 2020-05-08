@@ -22,7 +22,10 @@
 #'   Miniconda `PATH`.
 #'   If unspecified,
 #'   defaults to
-#'   `{HOME}/.local/miniconda3/bin`.
+#'   `{HOME}/.local/miniconda3`.
+#' @param conda_auto_activate_base Logical.
+#'   Auto activate base.
+#'   Ignored if `conda = FALSE`.
 #' @examples
 #' \dontrun{
 #' term_bash(
@@ -40,7 +43,8 @@ term_bash <- function(dir = Sys.getenv("HOME"),
                       overwrite = FALSE,
                       vars = NULL,
                       conda = FALSE,
-                      conda_path = NULL) {
+                      conda_path = NULL,
+                      conda_auto_activate_base = FALSE) {
   if (util_os() == "windows") {
     stop(
       "Bash is not avalable in Windows.\n"
@@ -107,29 +111,62 @@ term_bash <- function(dir = Sys.getenv("HOME"),
         file.path(
           Sys.getenv("HOME"),
           ".local",
-          "miniconda3",
-          "bin"
+          "miniconda3"
         )
       )
     }
-    conda_path <- paste0(
-      "export PATH=",
+    conda_path_bin <- file.path(
       conda_path,
+      "bin"
+    )
+    export_conda_path_bin <- paste0(
+      "export PATH=",
+      conda_path_bin,
       ":$PATH"
     )
     bash_path <- paste0(
       bash_path,
       "\n",
-      conda_path
+      export_conda_path_bin
     )
-    # paste0(
-    #  "eval \"$(",
-    #  file.path(
-    #    conda_path,
-    #    "conda"
-    #  ),
-    #  " shell.bash hook)"
-    # )
+    conda_bashrc <- paste0(
+      readLines(
+        con = system.file(
+          "extdata",
+          "conda",
+          "bashrc",
+          package = "jeksterslabRterm",
+          mustWork = TRUE
+        )
+      ),
+      collapse = "\n"
+    )
+    conda_bashrc <- gsub(
+      pattern = "CONDAPATHBIN",
+      replacement = conda_path_bin,
+      x = conda_bashrc
+    )
+    conda_bashrc <- gsub(
+      pattern = "CONDAPATH",
+      replacement = conda_path,
+      x = conda_bashrc
+    )
+
+    if (conda_auto_activate_base) {
+      paste0(
+        conda_bashrc,
+        "\n",
+        "CONDA_AUTO_ACTIVATE_BASE=true"
+      )
+    } else {
+      paste0(
+        conda_bashrc,
+        "\n",
+        "CONDA_AUTO_ACTIVATE_BASE=false"
+      )
+    }
+  } else {
+    conda_bashrc <- ""
   }
   neofetch <- "[ -x \"$(command -v neofetch)\" ] && neofetch"
   global <- paste0(
@@ -171,6 +208,7 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     bash_var,
     bash_set,
     bash_path,
+    conda_bashrc,
     sep = "\n\n"
   )
   util_txt2file(
