@@ -138,7 +138,10 @@ function job_color()
 # Adds some text in the terminal frame (if applicable).
 # Now we construct the prompt.
 # Git prompt
-[ -f "/usr/share/git/completion/git-prompt.sh" ] && source /usr/share/git/completion/git-prompt.sh
+# [ -f "/usr/share/git/completion/git-prompt.sh" ] && source /usr/share/git/completion/git-prompt.sh\
+# term_bash downloads these files
+source ~/.git-completion.bash
+source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
