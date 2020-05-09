@@ -38,6 +38,26 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     )
   }
   ###############################################################################
+  # ====[ git bash_prompt ]======================================================
+  ###############################################################################
+  # These files are source in bash_prompt
+  git_completion <- file.path(
+    Sys.getenv("HOME"),
+    ".git-completion.bash"
+  )
+  curl_download(
+    url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash",
+    destfile = git_completion
+  )
+  git_prompt <- file.path(
+    Sys.getenv("HOME"),
+    ".git-prompt.sh"
+  )
+  curl_download(
+    url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh",
+    destfile = git_prompt
+  )
+  ###############################################################################
   # ====[ bashrc ]===============================================================
   ###############################################################################
   fn_bashrc <- file.path(
@@ -191,25 +211,6 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     ),
     collapse = "\n"
   )
-  destfile <- file.path(
-    dir,
-    ".git-completion.bash"
-  )
-  curl_download(
-    url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash",
-    destfile = destfile
-  )
-  bash_profile <- paste0(
-    bash_profile,
-    "\n",
-    "if [ -f ",
-    destfile,
-    " ]; then",
-    "\n",
-    "\t", ". ", destfile,
-    "\n",
-    "fi"
-  )
   util_txt2file(
     text = bash_profile,
     dir = dir,
@@ -242,5 +243,14 @@ term_bash <- function(dir = Sys.getenv("HOME"),
     fn = ".bash_logout",
     msg = "Output file:",
     overwrite = overwrite
+  )
+  system(
+    paste(
+      "source",
+      file.path(
+        dir,
+        ".bashrc"
+      )
+    )
   )
 }
