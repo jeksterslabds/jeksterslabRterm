@@ -1,0 +1,104 @@
+---
+title: "Vignette: Setup Terminal Tools for R Scripting"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette: Setup Terminal Tools for R Scripting}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup}
+library(jeksterslabRterm)
+dir <- Sys.getenv("HOME")
+GITHUB_PAT = "123456"
+```
+
+## Git Config
+
+```{r git, eval = FALSE}
+term_git_config(
+  name = "Ivan Jacob Agaloos Pesigan",
+  email = "email@email.com",
+  editor = "vim",
+  ignore = c(
+    "*~",
+    ".*.swp",
+    ".DS_Store",
+    ".~lock.*"
+  ),
+  msg = paste0(
+    "Subject line (try to keep under 50 characters)",
+    "\n\n",
+    "Multi-line description of commit,",
+    "\n",
+    "feel free to be detailed.",
+    "\n\n",
+    "[Ticket: X]"
+  ),
+  global = TRUE
+)
+```
+
+## .Rprofile
+
+```{r rprofile, eval = FALSE}
+term_rprofile(
+  dir = dir,
+  overwrite = TRUE
+)
+```
+
+## .Renviron
+
+```{r renviron, eval = FALSE}
+term_renviron(
+  dir = dir,
+  overwrite = TRUE,
+  GITHUB_PAT = GITHUB_PAT,
+  libpath = NULL
+)
+```
+
+## Bash dot files
+
+```{r bash, eval = FALSE}
+term_bash(
+  dir = dir,
+  overwrite = TRUE,
+  vars = c(GITHUB_PAT = GITHUB_PAT)
+)
+```
+
+## Conda
+
+```{r conda, eval = FALSE}
+term_conda(
+  dir = dir,
+  overwrite = TRUE,
+  conda_path = NULL,
+  auto_activate_base = FALSE
+)
+```
+
+## Xterm
+
+```{r xterm, eval = FALSE}
+term_xterm(
+  overwrite = TRUE,
+  dark = TRUE
+)
+```
+
+## Vim
+
+```{r vim, eval = FALSE}
+term_vim(
+  dir = dir,
+  overwrite = TRUE,
+  plugins = TRUE,
+  dark = TRUE,
+  colorscheme = "default"
+)
+```
