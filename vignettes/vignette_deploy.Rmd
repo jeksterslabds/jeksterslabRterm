@@ -12,7 +12,7 @@ vignette: >
 ```{r setup}
 library(jeksterslabRterm)
 dir <- Sys.getenv("HOME")
-GITHUB_PAT = "123456"
+GITHUB_PAT <- "123456"
 ```
 
 ## Git Config
