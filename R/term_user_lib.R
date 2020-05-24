@@ -44,8 +44,7 @@ term_user_lib <- function(libpath = NULL,
       minor
     )
     # absolute path for ${HOME}/R/%p/%v
-    libpath <- normalizePath(
-      file.path(
+    libpath <- file.path(
         Sys.getenv("HOME"),
         "R",
         paste0(
@@ -53,7 +52,6 @@ term_user_lib <- function(libpath = NULL,
         ),
         version
       )
-    )
   }
   if (!dir.exists(libpath)) {
     dir.create(
