@@ -45,13 +45,13 @@ term_user_lib <- function(libpath = NULL,
     )
     # absolute path for ${HOME}/R/%p/%v
     libpath <- file.path(
-        Sys.getenv("HOME"),
-        "R",
-        paste0(
-          platform
-        ),
-        version
-      )
+      Sys.getenv("HOME"),
+      "R",
+      paste0(
+        platform
+      ),
+      version
+    )
   }
   if (!dir.exists(libpath)) {
     dir.create(
