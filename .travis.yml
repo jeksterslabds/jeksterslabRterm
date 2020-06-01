@@ -3,13 +3,19 @@ language: r
 r:
 - oldrel
 - release
+- devel
 os:
 - linux
 - osx
-cache: packages
+jobs:
+  exclude:
+  # macOS binary packages not available for r-devel
+  - r: devel
+    os: osx
 after_success:
 # tests in the package change some environment variables
 # reinstall needed packages
+- Rscript -e 'if (!require("tinytex")) install.packages("tinytex"); tinytex::install_tinytex()'
 - Rscript -e 'if (!require("covr")) install.packages("covr")'
 - Rscript -e 'if (!require("pkgdown")) install.packages("pkgdown")'
 - Rscript -e 'if (!require("remotes")) install.packages("remotes")'
