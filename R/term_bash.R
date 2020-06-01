@@ -246,7 +246,7 @@ term_bash <- function(dir = Sys.getenv("HOME"),
   )
   system(
     paste(
-      "source",
+      ".",
       file.path(
         dir,
         ".bashrc"
