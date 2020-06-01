@@ -1,0 +1,98 @@
+---
+title: "Test: term_rprofile"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Test: term_rprofile}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+
+
+```{r setup}
+library(testthat)
+library(jeksterslabRterm)
+library(jeksterslabRutils)
+context("Test term_rprofile.")
+```
+
+
+## Set test parameters
+
+
+```{r parameters}
+tmp <- file.path(
+  tempdir(),
+  util_rand_str()
+)
+dir.create(tmp)
+on.exit(
+  unlink(
+    tmp,
+    recursive = TRUE
+  )
+)
+fn_rprofile <- file.path(
+  tmp,
+  ".Rprofile"
+)
+```
+
+
+## Run test
+
+
+```{r test}
+term_rprofile(
+  dir = tmp,
+  overwrite = TRUE
+)
+```
+
+
+
+```{r testthat_01, echo=TRUE}
+test_that(".Rprofile", {
+  expect_true(
+    file.exists(fn_rprofile)
+  )
+})
+```
+
+
+
+```{r testthat_02, echo=TRUE}
+test_that("warning", {
+  expect_warning(
+    term_rprofile(
+      dir = tmp,
+      overwrite = FALSE
+    )
+  )
+})
+```
+
+
+
+```{r cleanup}
+unlink(
+  c(
+    fn_rprofile,
+    tmp
+  ),
+  recursive = TRUE
+)
+```
+
