@@ -28,7 +28,9 @@ term_install <- function(packages,
     )
   }
   if (os == "windows") {
-    # chocolatey
+    term_choco(
+      packages = packages
+    )
   }
   if (os == "linux") {
     distro <- util_distro()
