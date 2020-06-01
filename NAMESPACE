@@ -3,6 +3,7 @@
 export(term_apt)
 export(term_bash)
 export(term_brew)
+export(term_choco)
 export(term_conda)
 export(term_git_config)
 export(term_install)
