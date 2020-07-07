@@ -30,7 +30,8 @@ to setup terminal tools for R scripting.
 You can install the released version of `jeksterslabRterm` from [GitHub](https://github.com/jeksterslabds/jeksterslabRterm) with:
 
 ```r
-remotes::install_github("jeksterslabds/jeksterslabRterm")
+library(devtools)
+install_github("jeksterslabds/jeksterslabRterm")
 ```
 
 ## Example
