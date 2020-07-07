@@ -16,17 +16,4 @@ after_success:
 # tests in the package change some environment variables
 # reinstall needed packages
 - Rscript -e 'if (!require("covr")) install.packages("covr")'
-- Rscript -e 'if (!require("pkgdown")) install.packages("pkgdown")'
-- Rscript -e 'if (!require("remotes")) install.packages("remotes")'
-- Rscript -e 'if (!require("jeksterslabRterm")) remotes::install_github("jeksterslabds/jeksterslabRterm")'
 - Rscript -e 'covr::codecov()'
-- Rscript -e 'pkgdown::build_site()'
-deploy:
-  provider: pages
-  skip_cleanup: true
-  strategy: git
-  token: "$GITHUB_PAT"
-  keep_history: true
-  local_dir: docs
-  on:
-    branch: master
