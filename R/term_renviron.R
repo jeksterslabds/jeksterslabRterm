@@ -4,13 +4,13 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param dir Character string.
-#'   `.Renviron` directory.
-#'   Defaults to user's home directory.
+#' `.Renviron` directory.
+#' Defaults to user's home directory.
 #' @param overwrite Logical.
-#'   Overwrite existing `.Renviron` file in `dir`.
+#' Overwrite existing `.Renviron` file in `dir`.
 #' @param GITHUB_PAT Character string.
-#'   Optional argument.
-#'   Github Personal Access Token.
+#' Optional argument.
+#' Github Personal Access Token.
 #' @inheritParams term_user_lib
 #' @examples
 #' \dontrun{

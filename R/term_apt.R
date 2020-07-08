@@ -4,7 +4,7 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param ppa Character vector.
-#'   Personal Package Archives (PPA) to add.
+#' Personal Package Archives (PPA) to add.
 #' @inheritParams term_brew
 #' @export
 term_apt <- function(packages, ppa = NULL) {

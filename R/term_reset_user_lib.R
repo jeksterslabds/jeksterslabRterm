@@ -2,10 +2,8 @@
 #'
 #' Resets the R user library by doing the following:
 #' - removes contents of R user library (`{HOME}/R/{PLATFORM}/{R.VERSION}`) and
-#' - executes `term_user_lib` with arguments
-#'   `libpath = NULL`,
-#'   `dir = Sys.getenv("HOME")`, and
-#'   `overwrite = TRUE`.
+#' - executes `term_user_lib` with arguments `libpath = NULL`,
+#'   `dir = Sys.getenv("HOME")`, and `overwrite = TRUE`.
 #' **WARNING:**
 #' This function
 #' **permanently deletes files in `{HOME}/R/{PLATFORM}/{R.VERSION}`**.

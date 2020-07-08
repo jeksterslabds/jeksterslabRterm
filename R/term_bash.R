@@ -1,21 +1,17 @@
 #' Setup Bash dotfiles
 #'
 #' Creates the following files:
-#' `.bashrc`,
-#' `.bash_aliases`,
-#' `.bash_profile`,
-#' `.bash_logout`
-#'  in `dir`.
+#' `.bashrc`, `.bash_aliases`, `.bash_profile`, `.bash_logout` in `dir`.
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param dir Character string.
-#'   `.bash*` directory.
-#'   Defaults to user's home directory.
+#' `.bash*` directory.
+#' Defaults to user's home directory.
 #' @param overwrite Logical.
-#'   Overwrite existing `bash` dot files in `dir`.
+#' Overwrite existing `bash` dot files in `dir`.
 #' @param vars Named character vector.
-#'   Variables to export.
-#'   (e.g., `vars = c(GITHUB_PAT = "token_here", TRAVIS_TOKEN = "token_here")`.
+#' Variables to export.
+#' (e.g., `vars = c(GITHUB_PAT = "token_here", TRAVIS_TOKEN = "token_here")`.
 #' @examples
 #' \dontrun{
 #' term_bash(

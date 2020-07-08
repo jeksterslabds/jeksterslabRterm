@@ -5,21 +5,20 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param dir Character string.
-#'   `.bashrc` directory.
-#'   Defaults to user's home directory.
+#' `.bashrc` directory.
+#' Defaults to user's home directory.
 #' @param overwrite Logical.
-#'   Overwrite existing `.bashrc` and `.condarc` files in `dir`.
-#'   If `TRUE` and if file/s exist/s,
-#'   the settings are appended to the existing file.
-#'   If `FALSE` and if file/s exist/s,
-#'   none of the settings are written on disk.
+#' Overwrite existing `.bashrc` and `.condarc` files in `dir`.
+#' If `TRUE` and if file/s exist/s,
+#' the settings are appended to the existing file.
+#' If `FALSE` and if file/s exist/s,
+#' none of the settings are written on disk.
 #' @param conda_path Character string.
-#'   Miniconda `PATH`.
-#'   If unspecified,
-#'   defaults to
-#'   `{HOME}/.local/miniconda3`.
+#' Miniconda `PATH`.
+#' If unspecified,
+#' defaults to `{HOME}/.local/miniconda3`.
 #' @param auto_activate_base Logical.
-#'   Auto activate base.
+#' Auto activate base.
 #' @examples
 #' \dontrun{
 #' term_conda(

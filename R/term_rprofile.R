@@ -4,9 +4,9 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param dir Character string.
-#'   `.Rprofile` directory
+#' `.Rprofile` directory
 #' @param overwrite Logical.
-#'   Overwrite existing `.Rprofile` file in `dir`.
+#' Overwrite existing `.Rprofile` file in `dir`.
 #' @examples
 #' \dontrun{
 #' term_rprofile(

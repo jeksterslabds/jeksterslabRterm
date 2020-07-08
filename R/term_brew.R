@@ -4,12 +4,12 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param packages Character vector.
-#'   Packages to install.
+#' Packages to install.
 #' @param cask Logical.
-#'   If `TRUE`, uses `brew cask install ...`.
-#'   If `FALSE`, uses `brew install ...`.
+#' If `TRUE`, uses `brew cask install ...`.
+#' If `FALSE`, uses `brew install ...`.
 #' @param tap Character vector.
-#'   Add third-party repositories.
+#' Add third-party repositories.
 #' @export
 term_brew <- function(packages,
                       cask = FALSE,

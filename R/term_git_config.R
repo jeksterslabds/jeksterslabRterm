@@ -9,25 +9,21 @@
 #' and
 #' commit message.
 #'
-#' @param name Character string.
-#'   `Git` `user.name`.
-#' @param email Character string.
-#'   `Git` `user.email`.
-#' @param editor Character string.
-#'   `Git` `core.editor`.
+#' @param name Character string. `Git` `user.name`.
+#' @param email Character string. `Git` `user.email`.
+#' @param editor Character string. `Git` `core.editor`.
 #' @param ignore Character vector.
-#'   Patterns of file names and paths to ignore.
-#' @param msg Character string.
-#'   `Git` `commit.template`.
+#' Patterns of file names and paths to ignore.
+#' @param msg Character string. `Git` `commit.template`.
 #' @param global Logical.
-#'   If `TRUE`,
-#'   uses the `--global` option.
-#'   If `FALSE`,
-#'   uses the `--local` option.
+#' If `TRUE`,
+#' uses the `--global` option.
+#' If `FALSE`,
+#' uses the `--local` option.
 #' @param overwrite Logical.
-#'   Overwrite existing `git` dot files
-#'   in `$HOME` (`global = TRUE`)
-#'   or working directory (`global = FALSE`).
+#' Overwrite existing `git` dot files
+#' in `$HOME` (`global = TRUE`)
+#' or working directory (`global = FALSE`).
 #' @examples
 #' \dontrun{
 #' term_git_config(

@@ -5,13 +5,13 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param dir Character string.
-#'   `.vimrc` directory
+#' `.vimrc` directory
 #' @param overwrite Logical.
-#'   Overwrite existing `.vimrc` file in `dir`.
+#' Overwrite existing `.vimrc` file in `dir`.
 #' @param plugins Logical.
-#'   Install `vim` plugins.
+#' Install `vim` plugins.
 #' @param dark Logical.
-#'   Dark background.
+#' Dark background.
 #' @param colorscheme Character string.
 #' @examples
 #' \dontrun{

@@ -4,12 +4,12 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #' @param dir Character string.
-#'   `.Xresources` directory.
-#'   Defaults to user's home directory.
+#' `.Xresources` directory.
+#' Defaults to user's home directory.
 #' @param overwrite Logical.
-#'   Overwrite existing `.Xresources` dot files in `dir`.
+#' Overwrite existing `.Xresources` dot files in `dir`.
 #' @param dark Logical.
-#'   Dark color scheme.
+#' Dark color scheme.
 #' @examples
 #' \dontrun{
 #' term_xterm(
